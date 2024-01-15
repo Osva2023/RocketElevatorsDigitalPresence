@@ -150,7 +150,109 @@
 				<!-- /Top Nav -->
 
 			</div>
+            
+			<!-- FORM -->
+            <div id="Form" class="container"> 
+				<form>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="gridRadios" id="residential" value="option1" checked>
+						<label class="form-check-label" for="residential">
+						  Residential
+						</label>
+					  </div>
+					  <div class="form-check">
+						<input class="form-check-input" type="radio" name="gridRadios" id="commercial" value="option2">
+						<label class="form-check-label" for="commercial">
+						  Commercial
+						</label>
+					  </div>
+					  <div class="form-check">
+						<input class="form-check-input" type="radio" name="gridRadios" id="industrial" value="option3">
+						<label class="form-check-label" for="indistrial">
+						  Industrial
+						</label>
+					</div>
+					    
+					<div id="number-of-floors" class="input-field" style="display: none;">
+						<label>Amount of Floors</label>
+						<input type="text" id="floors-input" placeholder="cuantos pisos" />
+					  </div>
+					  
+					  
+					  <div id="number-of-apartments" class="input-field" style="display: none;">
+						<label>Numbers of apartments in the building</label>
+						<input type="text" id="apartments-input" placeholder="cuantos apartamentos" />
+					  </div>
 
+					  <div id="max-occupancy" class="input-field" style="display: none;">
+						<label>Maximun occupancy per floor</label>
+						<input type="text" id="occupancy-input"  placeholder="cuantas personas por piso" />
+					  </div>
+
+					  <div id="number-of-elevators" class="input-field" style="display: none;">
+						<label>Number of elevators needed</label>
+						<input type="text" id="elevators-input" placeholder="cuantos elevadores necesitaran?" />
+					  </div>
+					  
+					  
+					<fieldset class="row mb-3">
+					  
+					  <div class="col-sm-10">
+					  </div>
+					</fieldset>
+					<div class="row mb-3">
+					  <div class="col-sm-10 offset-sm-2">
+						
+						  
+						  </label>
+						</div>
+					  </div>
+					</div>
+
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="gridRadios" id="standard" value="option1" checked>
+						<label class="form-check-label" for="standard">
+						  Standard
+						</label>
+					  </div>
+					  <div class="form-check">
+						<input class="form-check-input" type="radio" name="gridRadios" id="premium" value="option2">
+						<label class="form-check-label" for="premium">
+						  Premium
+						</label>
+					  </div>
+					  <div class="form-check">
+						<input class="form-check-input" type="radio" name="gridRadios" id="exelium" value="option3">
+						<label class="form-check-label" for="exelium">
+						  Excelium
+						</label>
+					</div>
+
+					<div class="form-check">
+						<div id="elevators-needed-output" class="input-field" style="display: none;">
+							<label> Elevators needed</label>
+							<input type="text" id="elevators-input" placeholder="sale numero de elevadores" />
+						  </div>
+					
+					  <div id="unit-price-output" class="input-field" style="display: none;">
+						<label>Unit Price</label>
+						<input type="text" id="elevators-input" placeholder="sale precio unitario" />
+					  </div>
+					  <div id="installation-fee-output" class="input-field" style="display: none;">
+						<label>Installation Fees</label>
+						<input type="text" id="elevators-input" placeholder="sale precio instalacion" />
+					  </div>
+					  <div id="final-cost-output" class="input-field" style="display: none;">
+						<label>Final cost</label>
+						<input type="text" id="elevators-input" placeholder="sale costo final" />
+					  </div>
+
+
+					
+					
+				</form>	
+			</div>
+			<!-- /FORM -->
 
 			
 
@@ -266,6 +368,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+		<script src="rocketElevatorsDigitalPresence/quote.js"></script>
 		
 		<!-- STYLESWITCHER - REMOVE -->
 		<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
