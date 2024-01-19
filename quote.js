@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const commercialRadio = document.getElementById('commercial'); // commercial radio
     const industrialRadio = document.getElementById('industrial'); // industrial  radio
     
+    let residentialEle, commercialEle, totalocup, eachbank, bankrequired, aptxfloor, eleadd;;
+
     const floornumber = document.getElementById('number-of-floors'); // number of floors
     const aptmentsnumber = document.getElementById('number-of-apartments'); // number of aptments
     const occupancy = document.getElementById('max-occupancy'); // max occupancy
@@ -12,14 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const premiumRadio = document.getElementById('premium'); // premium radio
     const exeliumRadio = document.getElementById('exelium'); // exelium radio
 
-    const elevatorsneeded = document.getElementById('elevators-needed-output'); // elevators needed output
-    const unitprice = document.getElementById('unit-price-output'); // unit price output
-    const installationfee = document.getElementById('installation-fee-output'); // installation fee output
-    const finalcost = document.getElementById('final-cost-output'); // final cost output
+    const elevatorsneeded = document.getElementById('elevators-needed'); // elevators needed output
+    const unitprice = document.getElementById('unit-price'); // unit price output
+    const installationfee = document.getElementById('installation-fee'); // installation fee output
+    const finalcost = document.getElementById('final-cost'); // final cost output
 
     const standardprize = 8000;  //precio x elevador standard
     const premiumprize = 12000; // precio x elevador premium
-    const exeliumprize = 15000; // precio x elevador excelium
+    const exeliumprize = 15000; // precio x elevador excelium 
     
     const elevatorsInput = document.getElementById('elevators-input'); // variable almacen numero elevadores necesita cliente industrial
     elevatorsInput.addEventListener('input', function() {
@@ -64,28 +66,28 @@ document.addEventListener('DOMContentLoaded', function() {
         industrialEle = elevatorsInput.value;
         return industrialEle;
     }
-    function calculateResidentialEle() { //funcion que calcula elevadores necesitados edificio residential
+    function calculateResidentialEle() {
         let residentialEle;
-        if (floorInput.value <= 20){
-            const residentialEle = (apartmentInput.value / floorInput.value) / 6;
-        } else if (floorInput.value > 20){
-            aptxfloor = (apartmentInput.value / floorInput.value) ;
-            eachbank = (aptxfloor / 6) ;
-            eleadd = ((floorInput.value/20) - 1);
-            residentialEle = (eachbank * eleadd) ;
+        if (floorInput.value <= 20) {
+            residentialEle = (apartmentInput.value / floorInput.value) / 6;
+        } else if (floorInput.value > 20) {
+            aptxfloor = (apartmentInput.value / floorInput.value);
+            eachbank = (aptxfloor / 6);
+            eleadd = ((floorInput.value / 20) - 1);
+            residentialEle = (eachbank * eleadd);
+        }
         return residentialEle;
-        }  
     }
     function calculateCommercial() {  //funcion que calcula elevadores necesitados edificio comercial
         let commercialEle;
         totalocup = (occupancyInput.value * floorInput.value);
-        eachbank = (totaloccup / 200);
+        eachbank = (totalocup / 200);
         bankrequired = (floorInput.value/ 10);
         commercialEle = bankrequired * (eachbank + 1);
         return commercialEle;
         }
     
-    hideAllSections();
+    // hideAllSections();
 
     residentialRadio.addEventListener('click', function() { // comportamiento cuando das click en residential radio
        
@@ -118,28 +120,104 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     function getStandardCost() {  //funcion que calcula precio de un elevador standard
         let standardCost;
-        switch (true) {
-            case (residentialRadio.checked):
-                if (apartmentInput.value && floorInput.value)
-                calculateResidentialEle();
-                standardCost = residentialEle * standardprize;
-            break;
-
-            case (commercialRadio.checked):
-                if (floorInput.value && occupancyInput.value)
-                calculateCommercial();
-                standardCost = commercialEle * standardprize;
-            break;
-
-            case (industrialRadio.checked):
-                if (elevatorsInput.value)
-                calculateIndustrialEle();
-                standardCost = industrialEle * standardprize;
-        return standardCost;
+        let elevatorsNeeded;
+        let installationFee;
+        let finalCost;
+        
+        if(residentialRadio.checked && apartmentInput.value && floorInput.value){
+            calculateResidentialEle();
+            standardCost = residentialEle * standardprize;
+            elevatorsNeeded = residentialEle;
+            installationFee = standardCost / 10;
+            finalCost = (elevatorsNeeded * standardprize) + (installationfee);
+        } else if (commercialRadio.checked && floorInput.value && occupancyInput.value){
+            calculateCommercial();
+            standardCost = commercialEle * standardprize;
+            elevatorsNeeded = commercialEle;
+            installationFee = standardCost / 10;
+            finalCost = (elevatorsNeeded * standardprize) + (installationFee);
+        } else if (industrialRadio.checked && elevatorsInput.value){
+            calculateIndustrialEle();
+            standardCost = industrialEle * standardprize;
+            elevatorsNeeded = industrialEle;
+            installationFee = standardCost / 10;
+            finalCost = (elevatorsNeeded * standardprize) + (installationFee);
         }
-      
-              
-            }
+            
+    elevatorsneeded.value = elevatorsNeeded;
+    unitprice.value = standardprize;
+    installationfee.value = installationFee;
+    finalcost.value = finalCost;      
+    }
+    
+    function getPremiumCost() {  //funcion que calcula precio de un elevador premium
+        let premiumCost;
+        let elevatorsNeeded;
+        let installationFee;
+        let finalCost;
+        
+        if(residentialRadio.checked && apartmentInput.value && floorInput.value){
+            calculateResidentialEle();
+            premiumCost = residentialEle * premiumprize;
+            elevatorsNeeded = residentialEle;
+            installationFee = premiumCost * 0.15;
+            finalCost = (elevatorsNeeded * premiumprize) + (installationFee);
+        } else if (commercialRadio.checked && floorInput.value && occupancyInput.value){
+            calculateCommercial();
+            premiumCost = commercialEle * premiumprize;
+            elevatorsNeeded = commercialEle;
+            installationFee = premiumCost * 0.15;
+            finalCost = (elevatorsNeeded * premiumprize) + (installationFee);
+        } else if (industrialRadio.checked && elevatorsInput.value){
+            calculateIndustrialEle();
+            premiumCost = industrialEle * premiumprize;
+            elevatorsNeeded = industrialEle;
+            installationFee = premiumCost * 0.15;
+            finalCost = (elevatorsNeeded * premiumprize) + (installationFee);
+        }
+    elevatorsneeded.value = elevatorsNeeded;
+    unitprice.value = premiumprize;
+    installationfee.value = installationFee;
+    finalcost.value = finalCost;
+           
+    }
+
+    function getExeliumCost() {  //funcion que calcula precio de un elevador exelium
+        let exeliumCost;
+        let elevatorsNeeded;
+        let installationFee;
+        let finalCost;
+        if (residentialRadio.checked && apartmentInput.value && floorInput.value){
+            calculateResidentialEle();
+            exeliumCost = residentialEle * exeliumprize;
+            elevatorsNeeded = residentialEle;
+            installationFee = exeliumCost * 0.20;
+            finalCost = (elevatorsNeeded * exeliumprize) + (installationFee);
+        } else if (commercialRadio.checked && floorInput.value && occupancyInput.value){
+            calculateCommercial();
+            exeliumCost = commercialEle * exeliumprize;
+            elevatorsNeeded = commercialEle;
+            installationFee = exeliumCost * 0.20;
+            finalCost = (elevatorsNeeded * exeliumprize) + (installationFee);
+        } else if (industrialRadio.checked && elevatorsInput.value){
+            calculateIndustrialEle();
+            exeliumCost = industrialEle * exeliumprize;
+            elevatorsNeeded = industrialEle;
+            installationFee = exeliumCost * 0.20;
+            finalCost = (elevatorsNeeded * exeliumprize) + (installationFee);
+        }
+    elevatorsneeded.value = elevatorsNeeded;
+    unitprice.value = exeliumprize;
+    installationfee.value = installationFee;
+    finalcost.value = finalCost;
+
+    }
+
+
+    // poner evento de click en radio standard y llamar a standard cost
+    //getStandardCost();
+    //poner evento de click en radio premium y llamar a premium cost
+    //getPremiumCost();
     
 })
 
