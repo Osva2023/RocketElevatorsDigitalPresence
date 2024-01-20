@@ -24,6 +24,30 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+		<style>
+			.container-sm {
+				margin: 50px auto;
+				padding: 14px;
+				border: 1px solid black;
+				background-color: rgba(7, 21, 178, 0.78);
+				text-align: left;
+				display:inline-block;
+				border-radius: 10px;
+			}
+			#quality-buttons {
+				float:left;
+			}
+			.form-check-inline {
+				margin-right: 20px;
+			}
+			.input-field {
+				float: left;
+				width: 200px;
+				margin-right: 20px;
+				border-radius: 50px;
+			}
+		</style>
 	</head>
 
 	<!--
@@ -154,7 +178,7 @@
 			<!-- FORM -->
             <div id="Form" class="container"> 
 				<form>
-					<div class="container-sm" style="margin: 50px auto; margin-left: 300px; padding: 14px; border: 1px solid black; background-color: #baacac; 
+					<div class="container-sm" style="margin: 50px auto; margin-left: 300px; padding: 14px; border: 1px solid black; background-color: #4e0101ae; 
 					    display: inline-block; text-align: center;">
 					    <div class="form-check form-check-inline">
 						    <input class="form-check-input" type="radio" name="gridRadios" id="residential" value="option1" >
@@ -175,28 +199,29 @@
 						    </label>
 					    </div>
 					</div>
-					    
-					<div id="number-of-floors" class="input-field" style="display: none;">
-						<label for="floors-input">Amount of Floors</label>
-						<input type="text" id="floors-input" placeholder="" />
-					</div>
+					<div class="container-inputs" id="all-inputs" style="margin: 30px auto; margin-left: 350px; padding: 14px; 
+					  border: 1px solid black; background-color: #f5efefae; display: inline-block; text-align: center;"> 
 					
-					  
-					  
-					  <div id="number-of-apartments" class="input-field" style="display: none;">
-						<label for="apartments-input">Numbers of apartments in the building</label>
-						<input type="text" id="apartments-input" placeholder="cuantos apartamentos" />
-					  </div>
+					    <div id="number-of-floors" class="input-field" style="display: none;">
+						   <label for="floors-input">Type Amount of Floors on the building</label>
+						   <input type="text" id="floors-input" placeholder="" />
+					    </div>
+							  
+					    <div id="number-of-apartments" class="input-field" style="display: none;">
+						    <label for="apartments-input">Type Number of apartments in the building</label>
+						    <input type="text" id="apartments-input" placeholder="cuantos apartamentos" />
+					    </div>
 
-					  <div id="max-occupancy" class="input-field" style="display: none;">
-						<label for="occupancy-input">Maximun occupancy per floor</label>
-						<input type="text" id="occupancy-input"  placeholder="cuantas personas por piso" />
-					  </div>
+					    <div id="max-occupancy" class="input-field" style="display: none;">
+						    <label for="occupancy-input">Type Maximun occupancy per floor</label>
+						    <input type="text" id="occupancy-input"  placeholder="cuantas personas por piso" />
+					    </div>
 
-					  <div id="number-of-elevators" class="input-field" style="display: none;">
-						<label for="elevators-input">Number of elevators needed</label>
-						<input type="text" id="elevators-input" placeholder="" />
-					  </div>
+					    <div id="number-of-elevators" class="input-field" style="display: none;">
+						    <label for="elevators-input">Type Number of elevators needed</label>
+						    <input type="text" id="elevators-input" placeholder="" />
+					    </div>
+					</div>
 					  
 					  
 					<fieldset class="row mb-3">
@@ -212,45 +237,47 @@
 						</div>
 					  </div>
 					</div>
-
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="gridRadiosquality" id="standard" value="option1">
-						<label class="form-check-label" for="standard">
-						  Standard
+                    <div class="container-radio" id="quality-buttons" style="margin: 20px auto; margin-left: 200px; padding: 14px; border: 1px solid black; background-color: rgba(7, 21, 178, 0.78);
+					    display: none; text-align: center;">
+						<div class="form-check form-check-inline" id="standard">
+						    <input class="form-check-input" type="radio" name="gridRadiosquality" id="standardbutton" value="option1">
+						    <label class="form-check-label" for="standardbutton" style="color: #333; font-size: 22px;">
+						      Standard
+						    </label>
+					    </div>
+					    <div class="form-check form-check-inline" id="premium">
+						    <input class="form-check-input" type="radio" name="gridRadiosquality" id="premiumbutton" value="option2">
+						    <label class="form-check-label" for="premiumbutton" style="color: #333; font-size: 22px;">
+						      Premium
 						</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="gridRadiosquality" id="premium" value="option2">
-						<label class="form-check-label" for="premium">
-						  Premium
-						</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="gridRadiosquality" id="exelium" value="option3">
-						<label class="form-check-label" for="exelium">
-						  Excelium
-						</label>
+					    </div>
+					    <div class="form-check form-check-inline" id="exelium">
+						    <input class="form-check-input" type="radio" name="gridRadiosquality" id="exeliumbutton" value="option3">
+						    <label class="form-check-label" for="exeliumbutton" style="color: #333; font-size: 22px;">
+						      Excelium
+						    </label>
+					    </div>
 					</div>
 
 					<div class="form-check">
-						<div class="input-field" id="elevators-needed" style="display: none;" >
+						<div class="input-field" id="elevators-needed" style="display: none; margin-left: 60px;" >
 							<label for="elevators-needed-output">Elevators needed</label>
-							<input type="text" id="elevators-needed-output" placeholder="Número de elevadores necesarios" />
+							<input type="text" id="elevators-needed-output" placeholder="" />
 						</div>
 					
-						<div class="input-field" id="unit-price" style="display: none;">
+						<div class="input-field" id="unit-price" style="display: none; margin-left: 60px;">
 							<label for="unit-price-output">Unit Price</label>
-							<input type="text" id="unit-price-output" placeholder="Precio unitario" />
+							<input type="text" id="unit-price-output" placeholder="" />
 						</div>
 						
-						<div class="input-field" id="installation-fee" style="display: none;">
+						<div class="input-field" id="installation-fee" style="display: none; margin-left: 60px;">
 							<label for="installation-fee-output">Installation Fees</label>
-							<input type="text" id="installation-fee-output" placeholder="Precio de instalación" />
+							<input type="text" id="installation-fee-output" placeholder="" />
 						</div>
 						
-						<div class="input-field"  id="final-cost" style="display: none;">
+						<div class="input-field"  id="final-cost" style="display: none; margin-left: 60px;">
 							<label for="final-cost-output">Final cost</label>
-							<input type="text" id="final-cost-output" placeholder="Costo final" />
+							<input type="text" id="final-cost-output" placeholder="" />
 						</div>
 					</div>
 						
