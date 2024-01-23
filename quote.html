@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Rocket - Comercial + Admin</title>
+		<title>Rocket - Quote + Admin</title>
 		<meta name="description" content="" />
 		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
         <link rel="icon" href="assets/images/rocketElevators/icon.ico" type="image/ico" />
@@ -24,6 +24,72 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+		<style>
+			body {
+				background-image: url("./VELHMAT_ELEVADORES.jpg");
+				background-size: cover;
+				background-position: center;
+				background: transparent;
+			}
+			.container-sm {
+				margin: 50px auto;
+				margin-top: 30px;
+				padding: 14px;
+				border: 1px solid black;
+				background-color: #3072e0;
+				text-align: left;
+				display:inline-block;
+				border-radius: 10px;
+			}
+			#quality-buttons {
+				float:left;
+				border-radius: 10px;
+			}
+			.form-check-inline {
+				margin-right: 20px;
+			}
+			.input-field {
+				float: left;
+				width: 200px;
+				margin-right: 20px;
+				border-radius: 50px;
+			}
+			.container-inputs {
+				width: 500px;
+				height: 150px;
+				overflow: hidden;
+				text-align: center;
+				border-radius: 10px;
+			}
+			.header-text {
+				position: absolute;
+				top: 20px;
+				left: 15%;
+				font-size: 28px;
+				font-weight: bold;
+				font-family: Arial, Helvetica, sans-serif;
+				color: rgba(4, 43, 199, 0.749);
+			}
+			.sub-header-text {
+				position: absolute;
+				top: 80px;
+				left: 27%;
+				font-size: 20px;
+				font-weight: bold;
+				font-family: Arial, Helvetica, sans-serif;
+				color: rgba(4, 43, 199, 0.749);
+			}
+			.required-text {
+				font-size: 14px;
+				color: red;
+				position: absolute;
+                bottom: 45px;
+                left: 309px;
+                margin: 10px;
+			  }
+		  
+		</style>
 	</head>
 
 	<!--
@@ -111,32 +177,32 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li class="active"><!-- HOME -->
-										<a href="http://127.0.0.1:5500/Codeboxx/RocketElevatorsDigitalPresence/index.html#home">
+										<a href="./index.html">
 											HOME
 										</a>
 									</li>
-									<li><!-- FEATURES -->
-										<a href="#features">
+									<li><!-- SERVICES -->
+										<a href="./index.html#services">
 											SERVICES
 										</a>
 									</li>
 									<li><!-- PRICING -->
-										<a href="#pricing">
+										<a href="./index.html#portfolio">
 											PORTFOLIO
 										</a>
 									</li>
 									<li><!-- TESTIMONIALS -->
-										<a href="#testimonials">
+										<a href="./rocketcommercial.html#testimonials">
 											TESTIMONIALS
 										</a>
 									</li>
 									<li><!-- PURCHASE -->
-										<a class="external" href="http://127.0.0.1:5500/Codeboxx/RocketElevatorsDigitalPresence/index.html#clients">
+										<a class="external" href="./index.html#clients">
 											CLIENTS
 										</a>
 									</li>
 									<li><!-- CONTACT -->
-										<a class="external" href="http://127.0.0.1:5500/Codeboxx/RocketElevatorsDigitalPresence/index.html#contact">
+										<a class="external" href="./index.html#contact">
 											CONTACT
 										</a>
 									</li>
@@ -150,7 +216,121 @@
 				<!-- /Top Nav -->
 
 			</div>
+            
+			<!-- FORM -->
+            <div id="Form" class="container"> 
+				<form>
+					<div class="header-text">Welcome to Rocket Elevators. Please fill out the form below to get started.</div>
+					<div class="sub-header-text">Select type of building</div>
+					<div class="container-sm" style="margin: 50px auto; margin-top: 110px; margin-left: 300px; padding: 14px; border: 1px solid black; 
+					background-color: #A94545; display: inline-block; text-align: center;">
+					    <div class="form-check form-check-inline">
+						    <input class="form-check-input" type="radio" name="gridRadios" id="residential" value="option1" >
+						    <label class="form-check-label" for="residential" style="color: #333; font-size: 22px;">
+						      Residential
+						</label>
+					    </div>
+					      <div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="gridRadios" id="commercial" value="option2">
+						  <label class="form-check-label" for="commercial" style="color: #333; font-size: 22px;">
+						    Commercial
+						</label>
+					    </div>
+					    <div class="form-check form-check-inline">
+						    <input class="form-check-input" type="radio" name="gridRadios" id="industrial" value="option3">
+						    <label class="form-check-label" for="industrial" style="color: #333; font-size: 22px;">
+						      Industrial
+						    </label>
+					    </div>
+					</div>
+					<div class="container-inputs" id="all-inputs" style="margin: 30px auto; margin-left: 300px; padding: 14px; 
+					  border: 1px solid black; background-color: #f5efefae; ; text-align: justify;"> 
+					
+					    <div id="number-of-floors" class="input-field" style="display: none;">
+						   <label for="floors-input">Type Amount of Floors on the building</label>
+						   <input type="number" id="floors-input" min="1" placeholder="" />
+					    </div>
+							  
+					    <div id="number-of-apartments" class="input-field" style="display: none;">
+						    <label for="apartments-input">Type Number of apartments in the building</label>
+						    <input type="number" id="apartments-input" min="1" placeholder="" />
+					    </div>
 
+					    <div id="max-occupancy" class="input-field" style="display: none;">
+						    <label for="occupancy-input">Type Maximun occupancy per floor</label>
+						    <input type="number" id="occupancy-input"  min="1" placeholder="" />
+					    </div>
+
+					    <div id="number-of-elevators" class="input-field" style="display: none;">
+						    <label for="elevators-input">Type Number of elevators needed</label>
+						    <input type="number" id="elevators-input" min="1"  placeholder="" />
+					    </div>
+						<div class="required-text">&#42; Required</div>
+					</div>
+					  
+					  
+					<fieldset class="row mb-3">
+					  
+					  <div class="col-sm-10">
+					  </div>
+					</fieldset>
+					<div class="row mb-3">
+					  <div class="col-sm-10 offset-sm-2">
+						
+						  
+						  </label>
+						</div>
+					  </div>
+					</div>
+					
+                    <div class="container-radio" id="quality-buttons" style="margin: 20px auto; margin-left: 200px; padding: 14px; 
+					    border: 1px solid black; background-color: #3072e0; display: none; text-align: center;">
+						<div class="mini-header-text" style="font-size: 22px; font-weight: bold; text-decoration: underline; color: #A94545;">Select Category</div>
+						<div class="form-check form-check-inline" id="standard">
+						    <input class="form-check-input" type="radio" name="gridRadiosquality" id="standardbutton" value="option1">
+						    <label class="form-check-label" for="standardbutton" style="color: #333; font-size: 20px;">
+						      Standard
+						    </label>
+					    </div>
+					    <div class="form-check form-check-inline" id="premium">
+						    <input class="form-check-input" type="radio" name="gridRadiosquality" id="premiumbutton" value="option2">
+						    <label class="form-check-label" for="premiumbutton" style="color: #333; font-size: 20px;">
+						      Premium
+						</label>
+					    </div>
+					    <div class="form-check form-check-inline" id="exelium">
+						    <input class="form-check-input" type="radio" name="gridRadiosquality" id="exeliumbutton" value="option3">
+						    <label class="form-check-label" for="exeliumbutton" style="color: #333; font-size: 20px;">
+						      Excelium
+						    </label>
+					    </div>
+					</div>
+
+					<div class="form-check">
+						<div class="input-field" id="elevators-needed" style="display: none; margin-left: 60px;" >
+							<label for="elevators-needed-output" style="font-size: 20px; color: #333;"    >Elevators needed</label>
+							<input type="text" id="elevators-needed-output" placeholder="" />
+						</div>
+					
+						<div class="input-field" id="unit-price" style="display: none; margin-left: 60px;">
+							<label for="unit-price-output" style="font-size: 20px; color: #333;"  >Unit Price</label>
+							<input type="text" id="unit-price-output" placeholder="" />
+						</div>
+						
+						<div class="input-field" id="installation-fee" style="display: none; margin-left: 60px;">
+							<label for="installation-fee-output" style="font-size: 20px; color: #333;" >Installation Fees</label>
+							<input type="text" id="installation-fee-output" placeholder="" />
+						</div>
+						
+						<div class="input-field"  id="final-cost" style="display: none; margin-left: 60px;">
+							<label for="final-cost-output" style="font-size: 20px; font-weight: bold; color: #A94545;">Final cost *</label>
+							<input type="text" id="final-cost-output" placeholder="" />
+						</div>
+					</div>
+						
+				</form>	
+			</div>
+			<!-- /FORM -->
 
 			
 
@@ -213,8 +393,8 @@
 						data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-							<input type="email" id="email" name="email" class="form-control required"
-								placeholder="Enter your Email">
+							<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email" autocomplete="email">
+
 							<span class="input-group-btn">
 								<button class="btn btn-success" type="submit">Subscribe</button>
 							</span>
@@ -266,6 +446,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+		<script src="quote.js" ></script>
 		
 		<!-- STYLESWITCHER - REMOVE -->
 		<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
